@@ -30,8 +30,9 @@ public class PigLatinTranslator
     // System.out.println("translateWord: '" + input + "'");
 
     // Replace this code to correctly translate a single word.
-    // Start here first!
+
     String result = input;
+    if (result.indexOf("a")==0 || result.indexOf("e")==0 || result.indexOf("o")==0 || result.indexOf("i")==0 || result.indexOf("u")==0)
     
     return result;
   }
