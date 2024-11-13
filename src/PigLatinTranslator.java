@@ -20,25 +20,27 @@ public class PigLatinTranslator
     String line = "";
     int n = input.length();
     String trueOrFalse = "";
-    String letters = "abcdefghijklmnopqrstuvwxyz";
-    while (i<n){
-        if (letters.indexOf(input.charAt(i)) != -1){
-          trueOrFalse += "T";
-        }
-        else {
-          trueOrFalse += "F";
+    String letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (!input.isEmpty()){
+      while (i<n){
+          if (letters.indexOf(input.charAt(i)) != -1){
+            trueOrFalse += "T";
+          }
+          else {
+            trueOrFalse += "F";
+          }
           i++;
-        }
+      }
     }
-    while (trueOrFalse.length()>0){
-      while(trueOrFalse.charAt(0) == 'T'){
+    while (!trueOrFalse.isEmpty() && !input.isEmpty()){
+      while( !trueOrFalse.isEmpty() && trueOrFalse.charAt(0) == 'T' && !input.isEmpty()){
         characters += input.substring(0, 1);
         trueOrFalse = trueOrFalse.substring(1);
         input = input.substring(1);
       }
       line += translateWord(characters);
       characters = "";
-      while(trueOrFalse.charAt(0) == 'F'){
+      while(!trueOrFalse.isEmpty() && trueOrFalse.charAt(0) == 'F' && !input.isEmpty()){
         line += input.substring(0, 1);
         trueOrFalse = trueOrFalse.substring(1);
         input = input.substring(1);
@@ -61,11 +63,26 @@ public class PigLatinTranslator
     // Replace this code to correctly translate a single word.
     String word = input;
     String vowels = "aeiou";
-    word = word.substring(0,1).toLowerCase() + word.substring(1);
-    while (vowels.indexOf(word.charAt(0)) == -1){
-      word = word.substring(1)+ word.substring(0,1);
+    String a = "";
+    boolean capitalize = false;
+    if (!word.isEmpty()){
+      a = word.substring(0,1).toUpperCase();
+      if (word.substring(0, 1).equals(a)){
+        capitalize = true;
+      }
     }
-    word += "ay";
+    if (!word.isEmpty()){
+      word = word.substring(0, 1).toLowerCase() + word.substring(1);
+      while (vowels.indexOf(word.charAt(0)) == -1){
+        word = word.substring(1)+ word.substring(0,1);
+      }
+      word += "ay";
+      
+    }
+    if (capitalize == true){
+      word = word.substring(0,1).toUpperCase() + word.substring(1);
+    }
+    
     //word = word.substring(0,1).toUpperCase() + word.substring(1);
 
     
