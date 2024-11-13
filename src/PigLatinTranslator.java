@@ -62,7 +62,7 @@ public class PigLatinTranslator
 
     // Replace this code to correctly translate a single word.
     String word = input;
-    String vowels = "aeiou";
+    String vowels = "aeiouAEIOU";
     String a = "";
     boolean capitalize = false;
     if (!word.isEmpty()){
