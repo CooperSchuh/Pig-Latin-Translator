@@ -91,7 +91,7 @@ public class PigLatinTranslator
     if (!word.isEmpty()){
       word = word.substring(0, 1).toLowerCase() + word.substring(1);
       while (vowels.indexOf(word.charAt(0)) == -1 && c<100){
-        // idk why i need the c but i do
+        // c works to stop infinite while loops with one character thats a vowel
         word = word.substring(1)+ word.substring(0,1);
         c++;
       }

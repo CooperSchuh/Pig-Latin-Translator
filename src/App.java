@@ -31,12 +31,29 @@ public class App {
         //input.readFromString("Test", "Dog\nCat\nMouse");
 
         // Example reading from a URL
-        input.readFromUrl("Romeo and Juliette", "https://gutenberg.pglaf.org/cache/epub/1513/pg1513.txt");
+        input.readFromUrl("The greatest story of the world period 3", "https://www.gutenberg.org/cache/epub/74772/pg74772.txt");
 
-        input.printlines(101,3);
+        input.printlines(89, 111111);
         Book output = PigLatinTranslator.translate(input);
-        output.printlines(101,3);
+        output.printlines(89,111111);
         output.writeToFile();
+
+        Book input2 = new Book();
+        input2.readFromUrl("The greatest story of the world period 2", "https://www.gutenberg.org/cache/epub/74771/pg74771.txt");
+
+        input2.printlines(116, 111111);
+        Book output2 = PigLatinTranslator.translate(input2);
+        output2.printlines(116,111111);
+        output2.writeToFile();
+
+        
+        Book input3 = new Book();
+        input3.readFromUrl("Romeo and Juliette", "https://www.gutenberg.org/cache/epub/1513/pg1513.txt");
+
+        input3.printlines(116, 111111);
+        Book output3 = PigLatinTranslator.translate(input3);
+        output3.printlines(116,111111);
+        output3.writeToFile();
     }
 }
 
